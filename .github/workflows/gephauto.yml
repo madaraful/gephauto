@@ -18,4 +18,7 @@ jobs:
     
     steps:
     - name: gephauto
-      run: ls -hl #bash gephauto.sh
+      run: |
+        git clone https://github.com/madaraful/gephauto.git || exit
+        cd gephauto/ || exit
+        bash ./gephauto.sh || exit
