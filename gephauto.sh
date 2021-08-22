@@ -1,9 +1,11 @@
 #!/bin/bash
 
+TK=$1
+
 repodir=`pwd`
 
 cd /tmp/ || exit
-git clone https://github.com/geph-official/geph4.git || exit
+git clone https://${TK}@github.com/geph-official/geph4.git || exit
 cd geph4 || exit
 cargo build --release --locked -j 20 || exit
 cd target/release || exit
