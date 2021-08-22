@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: a
+name: gephauto
 
 # Controls when the workflow will run
 on:
@@ -10,9 +10,9 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   script:
-    name: a
+    name: gephauto
     runs-on: ubuntu-18.04
     
     steps:
-      -name: a
+      -name: gephauto
       run: bash gephauto.sh
