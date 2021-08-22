@@ -25,8 +25,8 @@ ls -hl || exit
 
 #exit 0
 
-git config --global user.email "no@example.com"
-git config --global user.name "github-actions-commiter"
+git config --global user.email "no@example.com" || exit
+git config --global user.name "github actions commiter" || exit
 
 git add -A || exit
 git status || exit
