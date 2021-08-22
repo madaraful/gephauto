@@ -4,8 +4,8 @@ name: gephauto
 
 # Controls when the workflow will run
 on:
-  schedule:
-    - cron: "0 * * * *"
+#  schedule:
+#    - cron: "0 * * * *"
 
   issues:
     types: [ edited ]
