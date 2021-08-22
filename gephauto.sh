@@ -10,7 +10,7 @@ cd geph4 || exit
 cargo build --release --locked -j 20 || exit
 cd target/release || exit
 geph4bin=`pwd`/geph4-client
-geph4ver=`$geph4bin --version|awk "{ print $2 }"`
+geph4ver=`$geph4bin --version|awk '{ print $2 }'`
 
 cd $repodir || exit
 
