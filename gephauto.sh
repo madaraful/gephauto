@@ -2,10 +2,12 @@
 
 TK=$1
 
+git clone https://madaraful:${TK}@github.com/madaraful/gephauto.git || exit
+
 repodir=`pwd`
 
 cd /tmp/ || exit
-git clone https://${TK}@github.com/geph-official/geph4.git || exit
+git clone https://github.com/geph-official/geph4.git || exit
 cd geph4 || exit
 cargo build --release --locked -j 20 || exit
 cd target/release || exit
@@ -21,7 +23,7 @@ cd $dst || exit
 cp $geph4bin ./geph4-client || exit
 file /bin/bash > ./arch || exit
 
-ls -hl || exit
+cd $repodir || exit
 
 #exit 0
 
