@@ -22,7 +22,7 @@ file /bin/bash > ./arch || exit
 
 ls -hl || exit
 
-exit 0
+#exit 0
 
 git add -A || exit
 git status || exit
