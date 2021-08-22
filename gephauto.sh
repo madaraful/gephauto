@@ -25,6 +25,9 @@ ls -hl || exit
 
 #exit 0
 
+  git config --global user.email "no@example.com"
+  git config --global user.name "github-actions-commiter"
+
 git add -A || exit
 git status || exit
 git commit -m 'update' || exit
