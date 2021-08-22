@@ -8,10 +8,21 @@ cd geph4 || exit
 cargo build --release --locked -j 20 || exit
 cd target/release || exit
 geph4bin=`pwd`/geph4-client
+geph4ver=`$geph4bin --version|awk "{ print $2 }"`
 
 cd $repodir || exit
 
-mkdir ./geph4-client
+dst=./geph4-client/${geph4ver}/
+mkdir -p $dst || exit
+cd $dst || exit
 cp $geph4bin ./geph4-client || exit
+file /bin/bash > ./arch || exit
 
-ls -hl
+ls -hl || exit
+
+exit 0
+
+git add -A || exit
+git status || exit
+git commit -m 'update' || exit
+git push origin master || exit
