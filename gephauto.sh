@@ -16,6 +16,7 @@ cd $repodir || exit
 
 dst=./geph4-client/${geph4ver}/
 mkdir -p $dst || exit
+echo DST IS $dst
 cd $dst || exit
 cp $geph4bin ./geph4-client || exit
 file /bin/bash > ./arch || exit
