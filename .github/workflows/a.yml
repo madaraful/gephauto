@@ -1,0 +1,18 @@
+# This is a basic workflow to help you get started with Actions
+
+name: a
+
+# Controls when the workflow will run
+on:
+  schedule:
+  - cron: "0 * * * *"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  script:
+    name: a
+    runs-on: ubuntu-18.04
+    
+    steps:
+      -name: a
+      run: bash gephauto.sh
