@@ -14,15 +14,21 @@ git clone https://madaraful:${TK}@github.com/madaraful/gephauto.git || exit
 cd gephauto/ || exit
 repodir=`pwd`
 
-cd $homedir
-git clone https://github.com/geph-official/geph4.git || exit
-cd geph4 || exit
-cargo build --release --locked -j 20 || exit
-cd target/release || exit
-geph4bin=`pwd`/geph4-client
+build(){
+  repourl=$1
+  name=$2
 
-cd $repodir || exit
-cp $geph4bin ./geph4-client || exit
+  cd $homedir || exit
+  git clone https://github.com/geph-official/${reponame} || exit
+  cd $reponame || exit
+  cargo build --release --locked -j 20 || exit
+  cd target/release || exit
+  bin=`pwd`/${name}
+
+  echo $bin
+}
+
+clientbin=`build geph4 geph4-client`
 
 #exit 0
 
