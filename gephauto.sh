@@ -34,7 +34,7 @@ build(){
   _build $* &
 }
 
-clientbin=`build geph4 geph4-client geph4-client`
+clientbin=`build geph4 geph4-client ./geph4-client/`
 wait
 
 cp $clientbin $repodir
