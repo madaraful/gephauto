@@ -5,6 +5,10 @@ homedir=/tmp/aishwiwhskfiebaud/
 mkdir -p $homedir || exit
 cd $homedir || exit
 
+mkdir build || exit
+cd build || exit
+builddir=`pwd`
+
 TK=$1
 
 git config --global user.email "no@example.com" || exit
@@ -18,13 +22,15 @@ build(){
   repourl=$1
   name=$2
 
-  cd $homedir || exit
+  cd $builddir || exit
+
   git clone https://github.com/geph-official/${reponame} || exit
   cd $reponame || exit
+
   cargo build --release --locked -j 20 || exit
   cd target/release || exit
-  bin=`pwd`/${name}
 
+  bin=`pwd`/${name}
   echo $bin
 }
 
