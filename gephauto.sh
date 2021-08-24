@@ -1,13 +1,7 @@
 #!/bin/bash
 
-homedir=/tmp/aishwiwhskfiebaud/
-
-mkdir -p $homedir || exit
+homedir=`mktemp -d`
 cd $homedir || exit
-
-mkdir build || exit
-cd build || exit
-builddir=`pwd`
 
 TK=$1
 
@@ -18,10 +12,11 @@ git clone https://madaraful:${TK}@github.com/madaraful/gephauto.git || exit
 cd gephauto/ || exit
 repodir=`pwd`
 
-build(){
+_build(){
   reponame=$1
   name=$2
 
+  builddir=`mktemp -d`
   cd $builddir || exit
 
   git clone https://github.com/geph-official/${reponame} || exit
@@ -33,9 +28,16 @@ build(){
   bin=`pwd`/${name}
   echo $bin
 }
+build(){
+  _build $* &
+}
 
 clientbin=`build geph4 geph4-client`
+vpnbin=`build geph4 geph4-vpn-helper`
+wait
+
 cp $clientbin $repodir
+cp $vpnbin $repodir
 
 
 #exit 0
