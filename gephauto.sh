@@ -15,12 +15,14 @@ repodir=`pwd`
 _build(){
   reponame=$1
   name=$2
+  subdir=$3
 
   builddir=`mktemp -d`
   cd $builddir || exit
 
   git clone https://github.com/geph-official/${reponame} || exit
   cd $reponame || exit
+  cd $subdir || exit
 
   cargo build --release --locked -j 20 || exit
   cd target/release || exit
@@ -32,12 +34,10 @@ build(){
   _build $* &
 }
 
-clientbin=`build geph4 geph4-client`
-vpnbin=`build geph4 geph4-vpn-helper`
+clientbin=`build geph4 geph4-client geph4-client`
 wait
 
 cp $clientbin $repodir
-cp $vpnbin $repodir
 
 
 #exit 0
