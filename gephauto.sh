@@ -19,7 +19,7 @@ cd gephauto/ || exit
 repodir=`pwd`
 
 build(){
-  repourl=$1
+  reponame=$1
   name=$2
 
   cd $builddir || exit
@@ -35,6 +35,8 @@ build(){
 }
 
 clientbin=`build geph4 geph4-client`
+cp $clientbin $repodir
+
 
 #exit 0
 
