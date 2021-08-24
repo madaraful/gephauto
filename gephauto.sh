@@ -3,7 +3,7 @@
 TK=$1
 
 git config --global user.email "no@example.com" || exit
-git config --global user.name "github actions commiter" || exit
+git config --global user.name "GithubActionsCommiter" || exit
 
 git clone https://madaraful:${TK}@github.com/madaraful/gephauto.git || exit
 repodir=`pwd`
