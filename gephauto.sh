@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd
+
 TK=$1
 
 git config --global user.email "no@example.com" || exit
